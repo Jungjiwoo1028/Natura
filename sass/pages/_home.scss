@@ -1,0 +1,92 @@
+.section-about {
+  background-color: $color-white;
+  padding: 13rem 15rem;
+  text-align: end;
+}
+
+.about__photo {
+  width: 45%;
+  padding-right: 4rem;
+}
+
+.section-blog {
+  background-color: $color-white;
+  padding: 5rem 15rem;
+}
+
+.blog__photo {
+  margin-right: 3rem;
+  width: 34rem;
+  height: 45rem;
+  margin-bottom: 2rem;
+}
+
+.blog__caption {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: $color-white;
+  font-size: 1.3rem;
+  text-align: center;
+  opacity: 0;
+  transition: all 1s;
+  backface-visibility: hidden;
+}
+
+.section-contact {
+  text-align: center;
+  background-color: $color-white;
+  padding: 5rem 15rem;
+}
+
+.section-footer {
+  background-color: #203226;
+  height: 80vh;
+  margin-top: 4rem;
+  position: relative;
+}
+
+.footer {
+  padding: 6rem;
+  border: 3px solid $color-white;
+  height: 65%;
+  width: 75%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  &__home {
+    width: 30rem;
+  }
+
+  &__shop {
+    width: 20rem;
+  }
+
+  &__about {
+    width: 13rem;
+  }
+
+  &__style {
+    margin-top: 1rem;
+    border-bottom: 2px solid $color-white;
+    display: block;
+  }
+
+  &__logo-box {
+    position: absolute;
+    top: 4rem;
+    left: 10%;
+    width: 16rem;
+    height: 8rem;
+    border-bottom: 2px solid $color-white;
+
+    &-text {
+      font-size: 6rem;
+      color: $color-white;
+      font-weight: 700;
+    }
+  }
+}
