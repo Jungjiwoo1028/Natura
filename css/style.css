@@ -48,12 +48,30 @@
   }
 }
 
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 *,
 *::after,
 *::before {
   margin: 0;
   padding: 0;
-  box-sizing: inherit;
+  box-sizing: border-box;
 }
 
 html {
@@ -63,6 +81,14 @@ html {
 
 body {
   box-sizing: border-box;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
 }
 
 body {
@@ -179,6 +205,7 @@ body {
   font-size: 1.8rem;
   height: 5.3rem;
   margin-top: 3rem;
+  padding: 10px;
 }
 
 .btn--dark::after {
@@ -224,57 +251,43 @@ body {
   left: 55%;
   transform: translate(-50%, -50%);
   list-style: none;
-  text-decoration: none;
   font-size: 1.8rem;
   width: 55%;
 }
 
 .header__navbar ul {
   width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  list-style: none;
+}
+
+.header__navbar ul li a {
+  text-decoration: none;
+  color: #18251c;
 }
 
 .header__navbar__item {
-  width: 23%;
   color: #18251c;
   display: inline-block;
+  position: relative;
 }
 
-.header__navbar__item:last-child:after {
-  margin-left: 6rem;
+.header__navbar__item:hover:before {
+  width: 100%;
 }
 
-.header__navbar__item:last-child:hover::after {
-  width: 5.7rem;
-}
-
-.header__navbar__item:nth-child(2):after {
-  margin-left: 7rem;
-}
-
-.header__navbar__item:nth-child(2):hover::after {
-  width: 3.2rem;
-}
-
-.header__navbar__item:nth-child(3):after {
-  margin-left: 6.6rem;
-}
-
-.header__navbar__item:nth-child(3):hover::after {
-  width: 4.5rem;
-}
-
-.header__navbar__item:after {
+.header__navbar__item::before {
+  width: 0%;
   background-color: #18251c;
+  height: 7%;
+  position: absolute;
+  left: 0;
+  bottom: 0;
   content: "";
-  display: block;
-  height: 0.1em;
-  margin-left: 6.7rem;
-  transition: all 0.5s;
-  width: 0;
-}
-
-.header__navbar__item:hover::after {
-  width: 3.8rem;
+  z-index: -1;
+  transition: width 0.5s ease;
 }
 
 .header__backet {
@@ -292,6 +305,7 @@ body {
   position: absolute;
   top: 6.5rem;
   left: 90%;
+  z-index: 10;
 }
 
 .header__logo-box {
@@ -315,6 +329,92 @@ body {
   text-align: left;
 }
 
+.nav {
+  visibility: hidden;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: 40%;
+  position: fixed;
+  background-color: #e8e3df;
+  z-index: 1;
+}
+
+.nav-fix.active {
+  position: fixed;
+  width: 100%;
+  height: 11vh;
+  background-color: #e8e3df;
+  backdrop-filter: blur(5);
+  top: 0;
+  z-index: 5;
+}
+
+.nav-fix.active .header__logo-box {
+  top: 1rem;
+}
+
+.nav-fix.active .header__navbar {
+  top: 4.5rem;
+}
+
+.nav-fix.active .header__backet {
+  top: 4rem;
+}
+
+.nav-fix.active .header__toggle {
+  top: 3.5rem;
+}
+
+.nav-inner {
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.5s ease;
+}
+
+.nav-inner ul li a {
+  font-style: inherit;
+  font-size: 2.5rem;
+  color: #18251c;
+  transition: color 0.4s ease;
+  text-transform: capitalize;
+  position: relative;
+  padding-bottom: 1.2px;
+  margin-bottom: 20px;
+  display: inline-block;
+}
+
+.nav-inner ul li a:hover:before {
+  width: 88%;
+}
+
+.nav-inner ul li a::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2.2px;
+  width: 0;
+  background-color: #18251c;
+  z-index: -1;
+  transition: width 0.5s ease;
+}
+
+header.active .nav {
+  transition: all 0.5s ease;
+  visibility: visible;
+  animation: fadeIn 0.6s;
+}
+
+header.active .nav-inner {
+  opacity: 1;
+}
+
 .grid {
   display: flex;
   justify-content: center;
@@ -329,6 +429,10 @@ body {
 
 .grid [class^="about__grid"] {
   margin: 3.5rem;
+}
+
+.section-contact .grid {
+  flex-direction: column;
 }
 
 .about__grid {
@@ -374,8 +478,24 @@ body {
 .contact__box {
   background-color: #203226;
   padding: 5.5rem 4rem;
-  width: 93rem;
+  width: 100%;
   margin-top: 4rem;
+}
+
+.contact__box__input-group {
+  margin-bottom: 3rem;
+  width: 100%;
+}
+
+.contact__box__input-group textarea {
+  font-size: 0.16rem;
+  padding-top: 1.3rem;
+  padding-left: 1rem;
+  color: #18251c;
+  width: 100%;
+  height: 12rem;
+  border-radius: 0.2rem;
+  font-family: inherit;
 }
 
 .contact__box__form {
@@ -385,20 +505,99 @@ body {
   flex-direction: column;
 }
 
-.contact__box__form label {
-  margin-bottom: 2.5rem;
-}
-
 .contact__box__form input {
   font-size: 0.16rem;
   padding-left: 1rem;
   color: #18251c;
   height: 4.5rem;
   width: 100%;
+  border-radius: 0.2rem;
 }
 
-.contact__box__form input:last-child {
-  height: 10rem;
+.about__grid {
+  margin-top: 0;
+  background-image: url("../img/carePlant.jpeg");
+  background-size: cover;
+  height: 45rem;
+}
+
+.about__grid--step {
+  opacity: 0.85;
+}
+
+.about__grid--step:nth-child(2) {
+  padding-right: 2rem;
+}
+
+.about__step {
+  background-color: #fff;
+}
+
+.about__photo {
+  display: none;
+}
+
+.heading-primary--main {
+  font-size: 6rem;
+  margin-bottom: 0;
+}
+
+.heading-primary--sub {
+  font-size: 1.3rem;
+  margin-bottom: -3rem;
+}
+
+.heading-secondary {
+  line-height: 4rem;
+  margin-bottom: 1rem;
+}
+
+.heading-secondary--sub {
+  margin-bottom: 1rem;
+}
+
+.heading--contact {
+  font-size: 3rem;
+  letter-spacing: 0.1rem;
+  padding: 0rem 1rem !important;
+}
+
+.btn, .btn:link, .btn:visited {
+  font-size: 1.8rem;
+  width: 20rem;
+  height: 5rem;
+}
+
+.btn--dark-form {
+  font-size: 1.5rem;
+  height: 5rem;
+  width: 15rem;
+}
+
+.blog__photo {
+  width: 30rem !important;
+  height: 43rem;
+}
+
+.footer {
+  color: #fff;
+  padding: 5rem 2.5rem !important;
+}
+
+.footer__title {
+  position: relative;
+  height: 0;
+  width: 10rem;
+}
+
+.footer__title ::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 1px;
+  width: 100%;
+  background-color: #fff;
 }
 
 .footer__ul {
@@ -408,7 +607,6 @@ body {
   text-decoration: none;
   list-style: none;
   font-size: 3rem;
-  color: #fff;
 }
 
 .footer__ul-li {
@@ -416,13 +614,28 @@ body {
   margin-bottom: 1rem;
 }
 
-@media screen and (max-width: 1054px) {
+@media (max-width: 1050px) {
+  .header__text-box {
+    left: 5%;
+  }
+  .header__logo-box {
+    left: 5%;
+  }
+  .header__backet, .header__navbar {
+    display: none;
+  }
+  .header__toggle {
+    display: block;
+  }
+}
+
+@media (max-width: 991px) {
   .about__step {
     padding: 2.5rem 1rem;
   }
 }
 
-@media (max-width: 1054px) and (min-width: 769px) {
+@media (max-width: 767px) {
   .section-about,
   .section-blog {
     padding: 10rem !important;
@@ -438,36 +651,20 @@ body {
   }
 }
 
-@media screen and (max-width: 1009px) {
+@media (max-width: 575px) {
   .footer {
     padding: 4.5rem !important;
   }
-  .footer__logo-box {
-    width: 10.5rem !important;
-    height: 5.5rem !important;
-    top: 3rem !important;
-  }
-  .footer__logo-box-text {
-    font-size: 4rem !important;
-  }
-  .footer__ul {
+  __ul {
     font-size: 2.5rem;
-  }
-  .footer__home {
-    width: 17rem !important;
-  }
-  .footer__shop {
-    width: 13rem !important;
-  }
-  .footer__about {
-    width: 10rem !important;
-  }
-  .blog__photo:nth-child(3) {
-    margin-right: 3rem !important;
   }
 }
 
-@media screen and (max-width: 768px) {
+.blog__photo:nth-child(3) {
+  margin-right: 3rem !important;
+}
+
+@media (max-width: 1000px) {
   .section-about,
   .section-blog {
     padding: 7rem 3rem !important;
@@ -477,98 +674,6 @@ body {
   }
   .section-contact span {
     padding: 0.1rem 4rem;
-  }
-  .header__text-box {
-    left: 5%;
-  }
-  .header__logo-box {
-    left: 5%;
-  }
-  .header__backet, .header__navbar {
-    display: none;
-  }
-  .header__toggle {
-    display: block;
-  }
-  .about__grid {
-    margin-top: 0;
-    background-image: url("../img/carePlant.jpeg");
-    background-size: cover;
-    height: 45rem;
-  }
-  .about__grid--step {
-    opacity: 0.85;
-  }
-  .about__grid--step:nth-child(2) {
-    padding-right: 2rem;
-  }
-  .about__step {
-    background-color: #fff;
-  }
-  .about__photo {
-    display: none;
-  }
-  .heading-primary--main {
-    font-size: 6rem;
-    margin-bottom: 0;
-  }
-  .heading-primary--sub {
-    font-size: 1.3rem;
-    margin-bottom: -3rem;
-  }
-  .heading-secondary {
-    line-height: 4rem;
-    margin-bottom: 1rem;
-  }
-  .heading-secondary--sub {
-    margin-bottom: 1rem;
-  }
-  .heading--contact {
-    font-size: 3rem;
-    letter-spacing: 0.1rem;
-    padding: 0rem 1rem !important;
-  }
-  .btn, .btn:link, .btn:visited {
-    font-size: 1.8rem;
-    width: 20rem;
-    height: 5rem;
-  }
-  .btn--dark-form {
-    font-size: 1.5rem;
-    height: 5rem;
-    width: 15rem;
-  }
-  .blog__photo {
-    width: 30rem !important;
-    height: 43rem;
-  }
-  .footer {
-    padding: 5rem 2.5rem !important;
-  }
-  .footer__logo-box {
-    width: 8rem !important;
-    height: 6rem !important;
-  }
-  .footer__logo-box-text {
-    display: block;
-    margin-top: 2rem;
-    font-size: 3rem !important;
-  }
-  .footer__ul {
-    letter-spacing: 50% !important;
-    font-size: 1.7rem;
-  }
-  .footer__ul-li {
-    margin-bottom: 2.3rem;
-  }
-  .footer__home {
-    width: 10rem !important;
-  }
-  .footer__shop {
-    width: 8rem !important;
-  }
-  .footer__about {
-    width: 4.5rem !important;
   }
 }
 
