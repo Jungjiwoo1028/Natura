@@ -431,10 +431,6 @@ header.active .nav-inner {
   margin: 3.5rem;
 }
 
-.section-contact .grid {
-  flex-direction: column;
-}
-
 .about__grid {
   align-items: center;
   text-align: center;
@@ -514,92 +510,6 @@ header.active .nav-inner {
   border-radius: 0.2rem;
 }
 
-.about__grid {
-  margin-top: 0;
-  background-image: url("../img/carePlant.jpeg");
-  background-size: cover;
-  height: 45rem;
-}
-
-.about__grid--step {
-  opacity: 0.85;
-}
-
-.about__grid--step:nth-child(2) {
-  padding-right: 2rem;
-}
-
-.about__step {
-  background-color: #fff;
-}
-
-.about__photo {
-  display: none;
-}
-
-.heading-primary--main {
-  font-size: 6rem;
-  margin-bottom: 0;
-}
-
-.heading-primary--sub {
-  font-size: 1.3rem;
-  margin-bottom: -3rem;
-}
-
-.heading-secondary {
-  line-height: 4rem;
-  margin-bottom: 1rem;
-}
-
-.heading-secondary--sub {
-  margin-bottom: 1rem;
-}
-
-.heading--contact {
-  font-size: 3rem;
-  letter-spacing: 0.1rem;
-  padding: 0rem 1rem !important;
-}
-
-.btn, .btn:link, .btn:visited {
-  font-size: 1.8rem;
-  width: 20rem;
-  height: 5rem;
-}
-
-.btn--dark-form {
-  font-size: 1.5rem;
-  height: 5rem;
-  width: 15rem;
-}
-
-.blog__photo {
-  width: 30rem !important;
-  height: 43rem;
-}
-
-.footer {
-  color: #fff;
-  padding: 5rem 2.5rem !important;
-}
-
-.footer__title {
-  position: relative;
-  height: 0;
-  width: 10rem;
-}
-
-.footer__title ::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  height: 1px;
-  width: 100%;
-  background-color: #fff;
-}
-
 .footer__ul {
   align-items: flex-end;
   display: flex;
@@ -607,6 +517,7 @@ header.active .nav-inner {
   text-decoration: none;
   list-style: none;
   font-size: 3rem;
+  color: #fff;
 }
 
 .footer__ul-li {
@@ -614,28 +525,19 @@ header.active .nav-inner {
   margin-bottom: 1rem;
 }
 
-@media (max-width: 1050px) {
-  .header__text-box {
-    left: 5%;
-  }
-  .header__logo-box {
-    left: 5%;
-  }
+@media screen and (max-width: 1054px) {
   .header__backet, .header__navbar {
     display: none;
   }
   .header__toggle {
     display: block;
   }
-}
-
-@media (max-width: 991px) {
   .about__step {
     padding: 2.5rem 1rem;
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 1054px) and (min-width: 769px) {
   .section-about,
   .section-blog {
     padding: 10rem !important;
@@ -651,20 +553,36 @@ header.active .nav-inner {
   }
 }
 
-@media (max-width: 575px) {
+@media screen and (max-width: 1009px) {
   .footer {
     padding: 4.5rem !important;
   }
-  __ul {
+  .footer__logo-box {
+    width: 10.5rem !important;
+    height: 5.5rem !important;
+    top: 3rem !important;
+  }
+  .footer__logo-box-text {
+    font-size: 4rem !important;
+  }
+  .footer__ul {
     font-size: 2.5rem;
+  }
+  .footer__home {
+    width: 17rem !important;
+  }
+  .footer__shop {
+    width: 13rem !important;
+  }
+  .footer__about {
+    width: 10rem !important;
+  }
+  .blog__photo:nth-child(3) {
+    margin-right: 3rem !important;
   }
 }
 
-.blog__photo:nth-child(3) {
-  margin-right: 3rem !important;
-}
-
-@media (max-width: 1000px) {
+@media screen and (max-width: 768px) {
   .section-about,
   .section-blog {
     padding: 7rem 3rem !important;
@@ -674,6 +592,98 @@ header.active .nav-inner {
   }
   .section-contact span {
     padding: 0.1rem 4rem;
+  }
+  .header__text-box {
+    left: 5%;
+  }
+  .header__logo-box {
+    left: 5%;
+  }
+  .header__backet, .header__navbar {
+    display: none;
+  }
+  .header__toggle {
+    display: block;
+  }
+  .about__grid {
+    margin-top: 0;
+    background-image: url("../img/carePlant.jpeg");
+    background-size: cover;
+    height: 45rem;
+  }
+  .about__grid--step {
+    opacity: 0.85;
+  }
+  .about__grid--step:nth-child(2) {
+    padding-right: 2rem;
+  }
+  .about__step {
+    background-color: #fff;
+  }
+  .about__photo {
+    display: none;
+  }
+  .heading-primary--main {
+    font-size: 6rem;
+    margin-bottom: 0;
+  }
+  .heading-primary--sub {
+    font-size: 1.3rem;
+    margin-bottom: -3rem;
+  }
+  .heading-secondary {
+    line-height: 4rem;
+    margin-bottom: 1rem;
+  }
+  .heading-secondary--sub {
+    margin-bottom: 1rem;
+  }
+  .heading--contact {
+    font-size: 3rem;
+    letter-spacing: 0.1rem;
+    padding: 0rem 1rem !important;
+  }
+  .btn, .btn:link, .btn:visited {
+    font-size: 1.8rem;
+    width: 20rem;
+    height: 5rem;
+  }
+  .btn--dark-form {
+    font-size: 1.5rem;
+    height: 5rem;
+    width: 15rem;
+  }
+  .blog__photo {
+    width: 30rem !important;
+    height: 43rem;
+  }
+  .footer {
+    padding: 5rem 2.5rem !important;
+  }
+  .footer__logo-box {
+    width: 8rem !important;
+    height: 6rem !important;
+  }
+  .footer__logo-box-text {
+    display: block;
+    margin-top: 2rem;
+    font-size: 3rem !important;
+  }
+  .footer__ul {
+    letter-spacing: 50% !important;
+    font-size: 1.7rem;
+  }
+  .footer__ul-li {
+    margin-bottom: 2.3rem;
+  }
+  .footer__home {
+    width: 10rem !important;
+  }
+  .footer__shop {
+    width: 8rem !important;
+  }
+  .footer__about {
+    width: 4.5rem !important;
   }
 }
 
