@@ -1,0 +1,30 @@
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &__ul {
+    align-items: flex-end;
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    list-style: none;
+    font-size: 3rem;
+    color: $color-white;
+    position: absolute;
+    right: 6%;
+
+    &-li {
+      text-align: end;
+      margin-bottom: 1rem;
+    }
+  }
+
+  &__title {
+    font-size: 4.5rem;
+    font-weight: 700;
+    color: $color-white;
+    position: absolute;
+    top: 9%;
+  }
+}

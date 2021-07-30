@@ -6,7 +6,7 @@ navToggler.addEventListener("click", () => {
 function toggleNavbar() {
   document.querySelector(".header").classList.toggle("active");
 }
-/* ----------- Toggle Navbar ----------- */
+/* ----------- Navbar Scroll ----------- */
 const header = document.querySelector(".nav-fix");
 
 function scrollFunc() {
