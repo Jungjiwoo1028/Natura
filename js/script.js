@@ -1,3 +1,4 @@
+"use strict";
 /* ----------- Toggle Navbar ----------- */
 const navToggler = document.querySelector(".header__toggle");
 navToggler.addEventListener("click", () => {

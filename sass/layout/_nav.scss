@@ -1,4 +1,14 @@
 .nav {
+  visibility: hidden;
+  right: 0;
+  top: 0;
+  height: 100vh;
+  width: 40%;
+  position: fixed;
+  background-color: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(5px);
+  z-index: 1;
+
   &-fix.active {
     position: fixed;
     width: 100%;
@@ -19,16 +29,6 @@
       top: 3.5rem;
     }
   }
-  visibility: hidden;
-  right: 0;
-  top: 0;
-  height: 100%;
-  width: 40%;
-  position: fixed;
-  background-color: rgba(255, 255, 255, 0.25);
-  backdrop-filter: blur(5px);
-
-  z-index: 1;
 
   &-inner {
     opacity: 0;
