@@ -2,11 +2,10 @@
 /* ----------- Toggle Navbar ----------- */
 const navToggler = document.querySelector(".header__toggle");
 navToggler.addEventListener("click", () => {
-  toggleNavbar();
+  document.querySelector(".nav").classList.toggle("active");
+  document.querySelector(".nav-inner").classList.toggle("opacity");
 });
-function toggleNavbar() {
-  document.querySelector(".header").classList.toggle("active");
-}
+
 /* ----------- Navbar Scroll ----------- */
 const header = document.querySelector(".nav-fix");
 
