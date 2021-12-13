@@ -1,6 +1,8 @@
 # Natura
-Natura site with Web designer
+It is a [responsive site](https://jungjiwoo1028.github.io/Natura/) developed based on a design received from a design major friend.
 
+## Skills
+- Html, Css and Sass
 
 ## Preview
 <img width="1369" src="https://user-images.githubusercontent.com/75884943/145830415-c7dc6c17-2035-474f-abed-a09497f98f30.png">
